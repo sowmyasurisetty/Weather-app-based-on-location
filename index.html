@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Weather App</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="animation" id="weatherAnimation"></div>
+  
+  <div class="app">
+    <h1>Weather Forecast</h1>
+    
+    <div class="search-box">
+      <input type="text" id="locationInput" placeholder="Enter city name..."/>
+      <button class="search-button" onclick="getWeather()">Search</button>
+    </div>
+    
+    <div class="loader" id="loader"></div>
+    
+    <div class="weather-card" id="weatherCard">
+      <div class="weather-info">
+        <div class="weather-details">
+          <h2 class="city" id="city"></h2>
+          <p class="description" id="description"></p>
+          <p class="temperature" id="temperature"></p>
+          
+          <div class="details">
+            <div class="detail-item">
+              <div class="detail-label">HUMIDITY</div>
+              <div class="detail-value" id="humidity"></div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">FEELS LIKE</div>
+              <div class="detail-value" id="feelsLike"></div>
+            </div>
+            <div class="detail-item">
+              <div class="detail-label">WIND</div>
+              <div class="detail-value" id="wind"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <button class="download-button" id="downloadBtn" onclick="downloadReport()">
+        Download Report
+      </button>
+    </div>
+  </div>
+  
+  <script src="script.js"></script>
+</body>
+</html>
