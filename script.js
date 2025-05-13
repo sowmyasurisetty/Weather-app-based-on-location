@@ -23,8 +23,9 @@ async function getWeather() {
   loader.style.display = 'block';
   weatherCard.style.opacity = '0';
 
+  // Call your Node.js backend
   const encodedCity = encodeURIComponent(location);
-  const apiUrl = `https://wgwef38lk8.execute-api.us-east-1.amazonaws.com/default/weatherreport?city=${encodedCity}`;
+  const apiUrl = `/api/weather?city=${encodedCity}`;
 
   try {
     const response = await fetch(apiUrl);
@@ -35,7 +36,7 @@ async function getWeather() {
 
     const data = await response.json();
 
-    // Extract weather data (adjust keys if API response differs)
+    // Extract weather data
     const area = data.city || location;
     const desc = data.description || '';
     const temp = data.temperature || '';
@@ -49,7 +50,7 @@ async function getWeather() {
     document.getElementById('temperature').innerText = temp ? `${temp}°C` : '';
     document.getElementById('humidity').innerText = humidity ? `${humidity}%` : '';
     document.getElementById('feelsLike').innerText = feelsLike ? `${feelsLike}°C` : '';
-    document.getElementById('wind').innerText = windSpeed ? `${windSpeed} km/h` : '';
+    document.getElementById('wind').innerText = windSpeed ? `${windSpeed} m/s` : '';
 
     // Show weather card with animation
     setTimeout(() => {
